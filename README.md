@@ -1,10 +1,9 @@
-# Getting Started
+---
+description: >-
+  Welcome to CloudCite's API Documentation. The CloudCite APIs are open-source
+  and 100% free to use. To get started, read the documentation for a specific
+  endpoint.
+---
 
-## What is CloudCite?
-
- CloudCite is a free, automatic, and open-source bibliography generator for thousands of citation styles including MLA, APA, and Chicago. It is built by students for students. No registration required. No tracking. No ads. Secured by SSL.
-
-
-
-
+# CloudCite API Documentation
 
