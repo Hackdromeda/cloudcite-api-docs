@@ -1,10 +1,10 @@
 ---
 description: >-
-  Cite accepts a CSL-JSON body with a specified citation style and locale and
-  returns a formatted citation.
+  The Citation Formatting API accepts a CSL-JSON body with a specified citation
+  style and locale and returns a formatted citation.
 ---
 
-# Cite
+# Citation Formatting API
 
 {% api-method method="post" host="https://api.cloudcite.net" path="/cite" %}
 {% api-method-summary %}

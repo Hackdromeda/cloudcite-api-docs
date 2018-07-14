@@ -1,10 +1,10 @@
 ---
 description: >-
-  Autofill provides a CSL-JSON response when you provide it with the specific
-  website, book, or movie.
+  The Metadata Autofill API provides a CSL-JSON response when you provide it
+  with the specific website, book, or movie.
 ---
 
-# Autofill
+# Metadata Autofill API
 
 {% api-method method="post" host="https://api.cloudcite.net" path="/autofill" %}
 {% api-method-summary %}
