@@ -1,2 +1,0 @@
-# Citation Style Language \(CSL\)
-
