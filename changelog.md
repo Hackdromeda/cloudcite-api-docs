@@ -1,7 +1,3 @@
----
-description: We are always looking to improve our APIs.
----
-
 # Changelog
 
 ## 1.0.1 - 07/09/2018

@@ -208,3 +208,84 @@ Cite will send the following back
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+## How do I interpret the response?
+
+* `maxoffset` \(integer\): The width of the widest first field in the bibliography, measured in characters.
+* `linespacing` \(integer\): Vertical line distance specified as a multiple of standard line height. You can force a minimum if there is none assigned such as **1.35**.
+* `entryspacing` \(integer\): Vertical distance between bibliographic entries, specified as a multiple of standard line height.
+* `second-field-align` \(boolean or integer\): The position of second-field alignment.
+* `hangingindent` \(boolean or integer\): Whether the bibliography items should be rendered with hanging-indents and the size of the indent.
+* `rightpadding` \(constant\): **.5**
+* Each entry is assigned a CSS class. You apply properties based on the class assigned by CSL.
+
+### Example HTML
+
+```markup
+<div class="csl-bib-body">
+  <div class="csl-entry">
+    <div class="csl-left-margin">[1]</div>
+    <div class="csl-right-inline">M. Krämer, “citeproc-java: A Citation Style
+      Language (CSL) processor for Java,” 20-Nov-2016. [Online]. Available:
+      http://michel-kraemer.github.io/citeproc-java/. [Accessed: 29-Jul-2018].
+    </div>
+  </div>
+  <div class="csl-entry">
+    Williams, Tennessee. <i>A Streetcar Named Desire</i>. Dramatists Play Service Inc, 1953.
+  </div>
+</div>
+```
+
+### **Example CSS**
+
+**For an example of how to add CSS to these classes,** [**go to the Zotero repository**](https://github.com/zotero/bib-web/blob/97567c6c1680e05f740303ad8148aed89c965639/src/js/cite.js)**. Here's a basic overview:**
+
+#### Here's what your CSS should look like for an the `csl-bib-body` class:
+
+```css
+ 'line-height: ' + linespacing + '; '
+```
+
+If the container has no child with the csl-left margin class and a hanging indent, add the following CSS. Note CSS properties when second-field-align=false or no value and hangingindent=true or value combination is not currently supported by this logic.
+
+```text
+'margin-left: ' + hangingindent + 'em; text-indent:-' + hangingindent + 'em;'
+```
+
+#### Here's what your CSS should look like for an the `csl-entry` class:
+
+```css
+'clear: left; margin-bottom:' + entryspacing + 'em;'
+```
+
+#### Here's what your CSS should look like for an the `csl-indent` class.
+
+```css
+'margin: .5em 0 0 2em; padding: 0 0 .2em .5em; border-left: 5px solid #ccc;'
+```
+
+#### Here's what your CSS should look like for an the `csl-right-inline` class:
+
+```css
+'margin: 0 .4em 0 ' + (secondFieldAlign ? maxOffset + rightPadding : '0') + 'em;'
+```
+
+If there's a hanging indent, add:
+
+```css
+'padding-left: ' + hangingindent + 'em; text-indent:-' + hangingindent + 'em;'
+```
+
+#### Here's what your CSS should look like for an the `csl-left-margin` class:
+
+```css
+'float: left; padding-right: ' + rightpadding + 'em;'
+```
+
+If there's a second-field-align value or it is true, add this:
+
+```css
+'text-align: right; width: ' + maxoffset + 'em;'
+```
+
+
+

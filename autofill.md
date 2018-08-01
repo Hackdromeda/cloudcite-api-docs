@@ -133,7 +133,7 @@ Autofill requires the following fields to be sent in the body of the POST reques
 Here's how it will respond:
 
 {% code-tabs %}
-{% code-tabs-item title="CSL-JSON Data for Website" %}
+{% code-tabs-item title="CSL-JSON Data Response" %}
 ```
 {
     "issued": {
@@ -946,4 +946,647 @@ Here's how it will respond:
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+## Music
+
+Autofill requires the following fields to be sent in the body of the POST request. Music has the following types: `album`, `song`, and `song-in-album`. You can use `song-in-album` once you have chosen the `collectionId` of the album you want the songs for. You can use the `trackId` of the song once you have chosen the song you want the CSL-JSON data for.
+
+{% code-tabs %}
+{% code-tabs-item title="CSL-JSON Data Song Request" %}
+```
+{
+  "title": "In My Feelings",
+  "format": "music",
+  "type": "song",
+  "song": "1418213402"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="CSL-JSON Data Album Request" %}
+```
+{
+  "title": "DAMN",
+  "format": "music",
+  "type": "album",
+  "album": "1223592280"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Album Request" %}
+```
+{
+  "title": "DAMN",
+  "format": "music",
+  "type": "album"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Song Request" %}
+```
+{
+  "title": "In My Feelings",
+  "format": "music",
+  "type": "song"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Song-in-Album Request" %}
+```
+{
+  "title": "DAMN",
+  "format": "music",
+  "type": "song-in-album",
+  "album": "1223592280"
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Here's how it will respond:
+
+{% code-tabs %}
+{% code-tabs-item title="CSL-JSON Data Song Response" %}
+```
+{
+    "issued": {
+        "month": "6",
+        "year": "2018",
+        "day": "29"
+    },
+    "id": "SET",
+    "author": [{
+        "given": "Drake"
+    }],
+    "composer": [],
+    "editor": [],
+    "edition": null,
+    "language": null,
+    "title": "In My Feelings",
+    "title-short": null,
+    "publisher": null,
+    "publisher-place": null,
+    "source": null,
+    "URL": null,
+    "abstract": null,
+    "collection-title": "Scorpion",
+    "genre": "Hip-Hop/Rap",
+    "type": "song"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="CSL-JSON Data Album Response" %}
+```
+{
+    "issued": {
+        "month": "4", "year":"2017", "day":"14"
+    }
+    ,
+    "id":"SET",
+    "author":[ {
+        "given": "Kendrick", "family":"Lamar"
+    }
+    ],
+    "composer":[],
+    "editor":[],
+    "edition":null,
+    "language":null,
+    "title":null,
+    "title-short":null,
+    "publisher":"Aftermath/Interscope (Top Dawg Entertainment)",
+    "publisher-place":null,
+    "source":null,
+    "URL":null,
+    "abstract":null,
+    "collection-title":"DAMN.",
+    "genre":"Hip-Hop/Rap",
+    "type":"song"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Album Response" %}
+```
+{
+    "resultCount": 49,
+    "results": [{
+            "wrapperType": "collection",
+            "collectionType": "Album",
+            "artistId": 368183298,
+            "collectionId": 1223592280,
+            "amgArtistId": 2412704,
+            "artistName": "Kendrick Lamar",
+            "collectionName": "DAMN.",
+            "collectionCensoredName": "DAMN.",
+            "artistViewUrl": "https://itunes.apple.com/us/artist/kendrick-lamar/368183298?uo=4",
+            "collectionViewUrl": "https://itunes.apple.com/us/album/damn/1223592280?uo=4",
+            "artworkUrl60": "https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/56/46/3f/56463f62-0d8d-3595-368b-38a995f10e36/source/60x60bb.jpg",
+            "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/56/46/3f/56463f62-0d8d-3595-368b-38a995f10e36/source/100x100bb.jpg",
+            "collectionPrice": 9.99,
+            "collectionExplicitness": "explicit",
+            "contentAdvisoryRating": "Explicit",
+            "trackCount": 15,
+            "copyright": "℗ 2017 Aftermath/Interscope (Top Dawg Entertainment)",
+            "country": "USA",
+            "currency": "USD",
+            "releaseDate": "2017-04-14T07:00:00Z",
+            "primaryGenreName": "Hip-Hop/Rap"
+        },
+        {
+            "wrapperType": "collection",
+            "collectionType": "Album",
+            "artistId": 368183298,
+            "collectionId": 1223585496,
+            "amgArtistId": 2412704,
+            "artistName": "Kendrick Lamar",
+            "collectionName": "DAMN.",
+            "collectionCensoredName": "DAMN.",
+            "artistViewUrl": "https://itunes.apple.com/us/artist/kendrick-lamar/368183298?uo=4",
+            "collectionViewUrl": "https://itunes.apple.com/us/album/damn/1223585496?uo=4",
+            "artworkUrl60": "https://is3-ssl.mzstatic.com/image/thumb/Music82/v4/85/d4/c7/85d4c795-5a00-a3dd-fef5-36dd996dd6ec/source/60x60bb.jpg",
+            "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Music82/v4/85/d4/c7/85d4c795-5a00-a3dd-fef5-36dd996dd6ec/source/100x100bb.jpg",
+            "collectionPrice": 9.99,
+            "collectionExplicitness": "cleaned",
+            "contentAdvisoryRating": "Clean",
+            "trackCount": 15,
+            "copyright": "℗ 2017 Aftermath/Interscope (Top Dawg Entertainment)",
+            "country": "USA",
+            "currency": "USD",
+            "releaseDate": "2017-04-14T07:00:00Z",
+            "primaryGenreName": "Hip-Hop/Rap"
+        }, (...)
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Song Response" %}
+```
+{
+    "resultCount": 50,
+    "results": [{
+            "wrapperType": "track",
+            "kind": "song",
+            "artistId": 271256,
+            "collectionId": 1418213110,
+            "trackId": 1418213402,
+            "artistName": "Drake",
+            "collectionName": "Scorpion",
+            "trackName": "In My Feelings",
+            "collectionCensoredName": "Scorpion",
+            "trackCensoredName": "In My Feelings",
+            "artistViewUrl": "https://itunes.apple.com/us/artist/drake/271256?uo=4",
+            "collectionViewUrl": "https://itunes.apple.com/us/album/in-my-feelings/1418213110?i=1418213402&uo=4",
+            "trackViewUrl": "https://itunes.apple.com/us/album/in-my-feelings/1418213110?i=1418213402&uo=4",
+            "previewUrl": "https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview128/v4/dc/54/ba/dc54bad9-9c1b-e6d6-a91d-b09126664b34/mzaf_5589493968026216281.plus.aac.p.m4a",
+            "artworkUrl30": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/4a/92/c4/4a92c451-466f-c94b-ee1f-a91dd2b5a978/source/30x30bb.jpg",
+            "artworkUrl60": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/4a/92/c4/4a92c451-466f-c94b-ee1f-a91dd2b5a978/source/60x60bb.jpg",
+            "artworkUrl100": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/4a/92/c4/4a92c451-466f-c94b-ee1f-a91dd2b5a978/source/100x100bb.jpg",
+            "collectionPrice": 13.99,
+            "trackPrice": 1.29,
+            "releaseDate": "2018-06-29T07:00:00Z",
+            "collectionExplicitness": "explicit",
+            "trackExplicitness": "explicit",
+            "discCount": 2,
+            "discNumber": 2,
+            "trackCount": 13,
+            "trackNumber": 9,
+            "trackTimeMillis": 217933,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Hip-Hop/Rap",
+            "contentAdvisoryRating": "Explicit",
+            "isStreamable": true
+        },
+        {
+            "wrapperType": "track",
+            "kind": "song",
+            "artistId": 271256,
+            "collectionId": 1406109769,
+            "trackId": 1406109901,
+            "artistName": "Drake",
+            "collectionName": "Scorpion",
+            "trackName": "In My Feelings",
+            "collectionCensoredName": "Scorpion",
+            "trackCensoredName": "In My Feelings",
+            "artistViewUrl": "https://itunes.apple.com/us/artist/drake/271256?uo=4",
+            "collectionViewUrl": "https://itunes.apple.com/us/album/in-my-feelings/1406109769?i=1406109901&uo=4",
+            "trackViewUrl": "https://itunes.apple.com/us/album/in-my-feelings/1406109769?i=1406109901&uo=4",
+            "previewUrl": "https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview128/v4/fa/4b/9e/fa4b9ea2-99c3-ab71-1103-68661ef7b6f3/mzaf_7196473382879067455.plus.aac.p.m4a",
+            "artworkUrl30": "https://is4-ssl.mzstatic.com/image/thumb/Music115/v4/a7/ff/8d/a7ff8d0a-ecd3-d83c-16b1-398ac849f395/source/30x30bb.jpg",
+            "artworkUrl60": "https://is4-ssl.mzstatic.com/image/thumb/Music115/v4/a7/ff/8d/a7ff8d0a-ecd3-d83c-16b1-398ac849f395/source/60x60bb.jpg",
+            "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music115/v4/a7/ff/8d/a7ff8d0a-ecd3-d83c-16b1-398ac849f395/source/100x100bb.jpg",
+            "collectionPrice": 13.99,
+            "trackPrice": 1.29,
+            "releaseDate": "2018-06-29T07:00:00Z",
+            "collectionExplicitness": "cleaned",
+            "trackExplicitness": "cleaned",
+            "discCount": 2,
+            "discNumber": 2,
+            "trackCount": 13,
+            "trackNumber": 9,
+            "trackTimeMillis": 217925,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Hip-Hop/Rap",
+            "contentAdvisoryRating": "Clean",
+            "isStreamable": true
+        }, (...)
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Song-in-Album Response" %}
+```
+{
+    "resultCount": 15,
+    "results": [{
+                "wrapperType": "collection",
+                "collectionType": "Album",
+                "artistId": 368183298,
+                "collectionId": 1223592280,
+                "amgArtistId": 2412704,
+                "artistName": "Kendrick Lamar",
+                "collectionName": "DAMN.",
+                "collectionCensoredName": "DAMN.",
+                "artistViewUrl": "https://itunes.apple.com/us/artist/kendrick-lamar/368183298?uo=4",
+                "collectionViewUrl": "https://itunes.apple.com/us/album/damn/1223592280?uo=4",
+                "artworkUrl60": "https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/56/46/3f/56463f62-0d8d-3595-368b-38a995f10e36/source/60x60bb.jpg",
+                "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/56/46/3f/56463f62-0d8d-3595-368b-38a995f10e36/source/100x100bb.jpg",
+                "collectionPrice": 9.99,
+                "collectionExplicitness": "explicit",
+                "contentAdvisoryRating": "Explicit",
+                "trackCount": 15,
+                "copyright": "℗ 2017 Aftermath/Interscope (Top Dawg Entertainment)",
+                "country": "USA",
+                "currency": "USD",
+                "releaseDate": "2017-04-14T07:00:00Z",
+                "primaryGenreName": "Hip-Hop/Rap"
+            },
+            {
+                "wrapperType": "track",
+                "kind": "song",
+                "artistId": 368183298,
+                "collectionId": 1223592280,
+                "trackId": 1223592491,
+                "artistName": "Kendrick Lamar",
+                "collectionName": "DAMN.",
+                "trackName": "BLOOD.",
+                "collectionCensoredName": "DAMN.",
+                "trackCensoredName": "BLOOD.",
+                "artistViewUrl": "https://itunes.apple.com/us/artist/kendrick-lamar/368183298?uo=4",
+                "collectionViewUrl": "https://itunes.apple.com/us/album/blood/1223592280?i=1223592491&uo=4",
+                "trackViewUrl": "https://itunes.apple.com/us/album/blood/1223592280?i=1223592491&uo=4",
+                "previewUrl": "https://audio-ssl.itunes.apple.com/apple-assets-us-std-000001/AudioPreview122/v4/89/68/13/89681310-538a-06e3-36ae-7081e6f2cf0f/mzaf_4908141583770766017.plus.aac.p.m4a",
+                "artworkUrl30": "https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/56/46/3f/56463f62-0d8d-3595-368b-38a995f10e36/source/30x30bb.jpg",
+                "artworkUrl60": "https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/56/46/3f/56463f62-0d8d-3595-368b-38a995f10e36/source/60x60bb.jpg",
+                "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music111/v4/56/46/3f/56463f62-0d8d-3595-368b-38a995f10e36/source/100x100bb.jpg",
+                "collectionPrice": 9.99,
+                "trackPrice": 1.29,
+                "releaseDate": "2017-04-14T07:00:00Z",
+                "collectionExplicitness": "explicit",
+                "trackExplicitness": "explicit",
+                "discCount": 1,
+                "discNumber": 1,
+                "trackCount": 14,
+                "trackNumber": 1,
+                "trackTimeMillis": 118067,
+                "country": "USA",
+                "currency": "USD",
+                "primaryGenreName": "Hip-Hop/Rap",
+                "contentAdvisoryRating": "Explicit",
+                "isStreamable": true
+            }, (...)
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+## Podcast
+
+Autofill requires the following fields to be sent in the body of the POST request. 
+
+Autofill currently does not parse the feed url provided to provide specific information about podcast episodes in the CSL Data format.
+
+{% code-tabs %}
+{% code-tabs-item title="CSL-JSON Data Podcast Request" %}
+```
+{
+  "title": "Stuff You Should Know",
+  "format": "podcast",
+  "type": "podcast",
+  "podcast": "278981407"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="CSL-JSON Data Episode Request" %}
+```
+
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Podcast Request" %}
+```text
+{
+  "title": "Stuff You Should Know",
+  "format": "podcast",
+  "type": "podcast"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Episode Request" %}
+```
+{
+  "title": "Stuff You Should Know",
+  "format": "podcast",
+  "type": "episode"
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Here's how it will respond:
+
+{% code-tabs %}
+{% code-tabs-item title="CSL-JSON Data Podcast Response" %}
+```
+{
+    "issued": {
+        "month": "7",
+        "year": "2018",
+        "day": "31"
+    },
+    "id": "SET",
+    "author": [{
+        "given": "HowStuffWorks"
+    }],
+    "composer": [],
+    "editor": [],
+    "edition": null,
+    "language": null,
+    "title": "Stuff You Should Know",
+    "title-short": null,
+    "publisher": null,
+    "publisher-place": null,
+    "source": null,
+    "URL": null,
+    "abstract": null,
+    "collection-title": "Stuff You Should Know",
+    "genre": "Society & Culture",
+    "type": "song"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="CSL-JSON Data Episode Response" %}
+```
+
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Podcast Response" %}
+```
+{
+    "resultCount": 5,
+    "results": [{
+            "wrapperType": "track",
+            "kind": "podcast",
+            "artistId": 284341002,
+            "collectionId": 278981407,
+            "trackId": 278981407,
+            "artistName": "HowStuffWorks",
+            "collectionName": "Stuff You Should Know",
+            "trackName": "Stuff You Should Know",
+            "collectionCensoredName": "Stuff You Should Know",
+            "trackCensoredName": "Stuff You Should Know",
+            "artistViewUrl": "https://itunes.apple.com/us/artist/howstuffworks/284341002?mt=2&uo=4",
+            "collectionViewUrl": "https://itunes.apple.com/us/podcast/stuff-you-should-know/id278981407?mt=2&uo=4",
+            "feedUrl": "https://feeds.megaphone.fm/stuffyoushouldknow",
+            "trackViewUrl": "https://itunes.apple.com/us/podcast/stuff-you-should-know/id278981407?mt=2&uo=4",
+            "artworkUrl30": "https://is4-ssl.mzstatic.com/image/thumb/Music128/v4/39/31/02/39310237-1c6c-4e43-7b2e-f561428a4dbe/source/30x30bb.jpg",
+            "artworkUrl60": "https://is4-ssl.mzstatic.com/image/thumb/Music128/v4/39/31/02/39310237-1c6c-4e43-7b2e-f561428a4dbe/source/60x60bb.jpg",
+            "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Music128/v4/39/31/02/39310237-1c6c-4e43-7b2e-f561428a4dbe/source/100x100bb.jpg",
+            "collectionPrice": 0.00,
+            "trackPrice": 0.00,
+            "trackRentalPrice": 0,
+            "collectionHdPrice": 0,
+            "trackHdPrice": 0,
+            "trackHdRentalPrice": 0,
+            "releaseDate": "2018-07-31T13:14:00Z",
+            "collectionExplicitness": "cleaned",
+            "trackExplicitness": "cleaned",
+            "trackCount": 300,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Society & Culture",
+            "contentAdvisoryRating": "Clean",
+            "artworkUrl600": "https://is4-ssl.mzstatic.com/image/thumb/Music128/v4/39/31/02/39310237-1c6c-4e43-7b2e-f561428a4dbe/source/600x600bb.jpg",
+            "genreIds": ["1324", "26"],
+            "genres": ["Society & Culture", "Podcasts"]
+        },
+        {
+            "wrapperType": "track",
+            "kind": "podcast",
+            "collectionId": 736826307,
+            "trackId": 736826307,
+            "artistName": "Andrew Fiebert, Thomas Frank | Talking about stuff you should know on investing, business building, and real estate like: Planet Money, Freakonomics Radio, Dave Ramsey, Tim Ferriss, Reply All, Radiolab, Side Hustle School, Joe Rogan, Fresh Air, Startup",
+            "collectionName": "Listen Money Matters - Free your inner financial badass. This is not your father's boring personal finance show.",
+            "trackName": "Listen Money Matters - Free your inner financial badass. This is not your father's boring personal finance show.",
+            "collectionCensoredName": "Listen Money Matters - Free your inner financial badass. This is not your father's boring personal finance show.",
+            "trackCensoredName": "Listen Money Matters - Free your inner financial badass. This is not your father's boring personal finance show.",
+            "collectionViewUrl": "https://itunes.apple.com/us/podcast/listen-money-matters-free-your-inner-financial-badass/id736826307?mt=2&uo=4",
+            "feedUrl": "http://www.listenmoneymatters.com/feed/podcast/",
+            "trackViewUrl": "https://itunes.apple.com/us/podcast/listen-money-matters-free-your-inner-financial-badass/id736826307?mt=2&uo=4",
+            "artworkUrl30": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/52/c9/2e/52c92e71-9a69-bc5c-de8d-5ac3b540ab92/source/30x30bb.jpg",
+            "artworkUrl60": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/52/c9/2e/52c92e71-9a69-bc5c-de8d-5ac3b540ab92/source/60x60bb.jpg",
+            "artworkUrl100": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/52/c9/2e/52c92e71-9a69-bc5c-de8d-5ac3b540ab92/source/100x100bb.jpg",
+            "collectionPrice": 0.00,
+            "trackPrice": 0.00,
+            "trackRentalPrice": 0,
+            "collectionHdPrice": 0,
+            "trackHdPrice": 0,
+            "trackHdRentalPrice": 0,
+            "releaseDate": "2018-07-30T13:22:00Z",
+            "collectionExplicitness": "explicit",
+            "trackExplicitness": "explicit",
+            "trackCount": 300,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Investing",
+            "contentAdvisoryRating": "Explicit",
+            "artworkUrl600": "https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/52/c9/2e/52c92e71-9a69-bc5c-de8d-5ac3b540ab92/source/600x600bb.jpg",
+            "genreIds": ["1412", "26", "1321", "1318", "1304", "1480"],
+            "genres": ["Investing", "Podcasts", "Business", "Technology", "Education", "Software How-To"]
+        },
+        {
+            "wrapperType": "track",
+            "kind": "podcast",
+            "collectionId": 412678859,
+            "trackId": 412678859,
+            "artistName": "J. 10 Initiative",
+            "collectionName": "Catholic Stuff You Should Know",
+            "trackName": "Catholic Stuff You Should Know",
+            "collectionCensoredName": "Catholic Stuff You Should Know",
+            "trackCensoredName": "Catholic Stuff You Should Know",
+            "collectionViewUrl": "https://itunes.apple.com/us/podcast/catholic-stuff-you-should-know/id412678859?mt=2&uo=4",
+            "feedUrl": "https://pinecast.com/feed/catholicstuff",
+            "trackViewUrl": "https://itunes.apple.com/us/podcast/catholic-stuff-you-should-know/id412678859?mt=2&uo=4",
+            "artworkUrl30": "https://is3-ssl.mzstatic.com/image/thumb/Music118/v4/8a/36/58/8a365812-a395-458f-7ba0-dfb7b7749169/source/30x30bb.jpg",
+            "artworkUrl60": "https://is3-ssl.mzstatic.com/image/thumb/Music118/v4/8a/36/58/8a365812-a395-458f-7ba0-dfb7b7749169/source/60x60bb.jpg",
+            "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Music118/v4/8a/36/58/8a365812-a395-458f-7ba0-dfb7b7749169/source/100x100bb.jpg",
+            "collectionPrice": 0.00,
+            "trackPrice": 0.00,
+            "trackRentalPrice": 0,
+            "collectionHdPrice": 0,
+            "trackHdPrice": 0,
+            "trackHdRentalPrice": 0,
+            "releaseDate": "2018-07-26T06:01:00Z",
+            "collectionExplicitness": "cleaned",
+            "trackExplicitness": "cleaned",
+            "trackCount": 300,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Christianity",
+            "contentAdvisoryRating": "Clean",
+            "artworkUrl600": "https://is3-ssl.mzstatic.com/image/thumb/Music118/v4/8a/36/58/8a365812-a395-458f-7ba0-dfb7b7749169/source/600x600bb.jpg",
+            "genreIds": ["1439", "26", "1314"],
+            "genres": ["Christianity", "Podcasts", "Religion & Spirituality"]
+        },
+        {
+            "wrapperType": "track",
+            "kind": "podcast",
+            "collectionId": 1305381419,
+            "trackId": 1305381419,
+            "artistName": "A.J. Hanenburg, Graeme Donaldson, and Thomas Magbee",
+            "collectionName": "Classical Stuff You Should Know",
+            "trackName": "Classical Stuff You Should Know",
+            "collectionCensoredName": "Classical Stuff You Should Know",
+            "trackCensoredName": "Classical Stuff You Should Know",
+            "collectionViewUrl": "https://itunes.apple.com/us/podcast/classical-stuff-you-should-know/id1305381419?mt=2&uo=4",
+            "feedUrl": "https://www.classicalstuff.net/episodes-1/?format=rss",
+            "trackViewUrl": "https://itunes.apple.com/us/podcast/classical-stuff-you-should-know/id1305381419?mt=2&uo=4",
+            "artworkUrl30": "https://is3-ssl.mzstatic.com/image/thumb/Music128/v4/5f/e1/12/5fe112ed-c22d-49fe-c0c4-37e0e25ca96d/source/30x30bb.jpg",
+            "artworkUrl60": "https://is3-ssl.mzstatic.com/image/thumb/Music128/v4/5f/e1/12/5fe112ed-c22d-49fe-c0c4-37e0e25ca96d/source/60x60bb.jpg",
+            "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Music128/v4/5f/e1/12/5fe112ed-c22d-49fe-c0c4-37e0e25ca96d/source/100x100bb.jpg",
+            "collectionPrice": 0.00,
+            "trackPrice": 0.00,
+            "trackRentalPrice": 0,
+            "collectionHdPrice": 0,
+            "trackHdPrice": 0,
+            "trackHdRentalPrice": 0,
+            "releaseDate": "2018-07-31T14:01:00Z",
+            "collectionExplicitness": "cleaned",
+            "trackExplicitness": "cleaned",
+            "trackCount": 48,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Literature",
+            "contentAdvisoryRating": "Clean",
+            "artworkUrl600": "https://is3-ssl.mzstatic.com/image/thumb/Music128/v4/5f/e1/12/5fe112ed-c22d-49fe-c0c4-37e0e25ca96d/source/600x600bb.jpg",
+            "genreIds": ["1401", "26", "1301", "1314", "1439", "1304", "1415"],
+            "genres": ["Literature", "Podcasts", "Arts", "Religion & Spirituality", "Christianity", "Education", "K-12"]
+        },
+        {
+            "wrapperType": "track",
+            "kind": "podcast",
+            "collectionId": 1055726073,
+            "trackId": 1055726073,
+            "artistName": "Scouting Stuff Team",
+            "collectionName": "Scouting Stuff You Should Know",
+            "trackName": "Scouting Stuff You Should Know",
+            "collectionCensoredName": "Scouting Stuff You Should Know",
+            "trackCensoredName": "Scouting Stuff You Should Know",
+            "collectionViewUrl": "https://itunes.apple.com/us/podcast/scouting-stuff-you-should-know/id1055726073?mt=2&uo=4",
+            "feedUrl": "http://scoutingstuffpodcast.com/feed.xml",
+            "trackViewUrl": "https://itunes.apple.com/us/podcast/scouting-stuff-you-should-know/id1055726073?mt=2&uo=4",
+            "artworkUrl30": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/29/a1/00/29a100d1-549a-5542-6f31-5f01ad50d9cb/source/30x30bb.jpg",
+            "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/29/a1/00/29a100d1-549a-5542-6f31-5f01ad50d9cb/source/60x60bb.jpg",
+            "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/29/a1/00/29a100d1-549a-5542-6f31-5f01ad50d9cb/source/100x100bb.jpg",
+            "collectionPrice": 0.00,
+            "trackPrice": 0.00,
+            "trackRentalPrice": 0,
+            "collectionHdPrice": 0,
+            "trackHdPrice": 0,
+            "trackHdRentalPrice": 0,
+            "releaseDate": "2018-07-31T14:57:00Z",
+            "collectionExplicitness": "cleaned",
+            "trackExplicitness": "cleaned",
+            "trackCount": 110,
+            "country": "USA",
+            "currency": "USD",
+            "primaryGenreName": "Non-Profit",
+            "contentAdvisoryRating": "Clean",
+            "artworkUrl600": "https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/29/a1/00/29a100d1-549a-5542-6f31-5f01ad50d9cb/source/600x600bb.jpg",
+            "genreIds": ["1476", "26", "1325"],
+            "genres": ["Non-Profit", "Podcasts", "Government & Organizations"]
+        }
+    ]
+}
+
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Episode Response" %}
+```
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+## TV Show {#podcast}
+
+TV Shows are not currently supported by autofill. We expect to add support for this soon.
+
+## Journal
+
+Journals are not currently supported by autofill. We expect to add support for this soon.
+
+## Digital Image
+
+Digital images are not currently supported by autofill. We expect to add support for this soon.
+
+## Other Formats
+
+[Definitions by Zotero](https://www.zotero.org/support/kb/item_types_and_fields). Formats marked in bold are supported by CloudCite's Autofill API.
+
+| Item Type | Description |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Artwork | A piece of artwork \(e.g., an oil painting, photograph, or sculpture\). Also use this item type for other types of images or visual items \(e.g., scientific figures\). |
+| **Audio Recording** | Any form of audio recording, including music, spoken word, sound effects, archival recordings, or audio-based scientific figures. |
+| Bill | A proposed piece of legislation. |
+| Blog Post | An article or entry posted to a personal blog website. For online articles published as part of a larger online publication \(e.g., [NYT Blogs](http://www.nytimes.com/interactive/blogs/directory.html)\), using `Magazine Article` or `Newspaper Article` generally yields better results. |
+| **Book** | A book or similar published item. For government documents, technical reports, manuals, etc., use `Report`instead. This item type can also be adapted to fit many types of unusual items. |
+| Book Section | A section of a book. Usually chapters, but also forewords, prefaces, introductions, appendices, afterwords, comments, etc. |
+| Case | A legal case, either published or unpublished. |
+| Computer Program | A piece of software or other computer program. |
+| Conference Paper | A paper presented at a conference and subsequently published in a formal conference proceedings publication \(e.g., as a book, report, or issue of a journal\). For conference papers that have not been published in a proceedings, use `Presentation`. |
+| Dictionary Entry | An entry published as part of a dictionary. |
+| Document | A generic document item. This item type has a poor selection of fields and poor support in citation styles, so it should generally be avoided. |
+| Email | A message sent via email. This type could also be used for other forms of personal communication. |
+| Encyclopedia Article | An article or chapter published as part of an encyclopedia. |
+| **Film** | A film or motion picture. Generally, use this type for artistically-oriented films \(including fictional, non-fictional, and documentary films\). For other types of video items, use `Video Recording`. |
+| Forum Post | A post on an online discussion forum. Also use this type for items such as Facebook posts or tweets. |
+| Hearing | A formal hearing or meeting report by a legislative body. |
+| Instant Message | A message sent via an instant message or chat service. This type could also be used for other forms of personal communication. |
+| Interview | An interview with a person, including recordings, transcripts, or other records of the interview. |
+| Journal Article | An article published in a scholarly journal \(either print or online\). |
+| Letter | A letter sent between persons or organizations. This type could also be used for other forms of personal communication. |
+| Magazine Article | An article published in a non-scholarly, popular, or trade magazine \(either print or online\). |
+| Manuscript | An unpublished manuscript. Use this type for both historical documents and modern unpublished work \(e.g., unpublished manuscripts, manuscripts submitted for publication, working papers that are not widely available\). Can also be used for other forms of historical or archival documents. This item type can also be adapted to fit many types of unusual items. |
+| Map | A map. Also use this type for geographic models. |
+| Newspaper Article | An article published in a newspaper \(either print or online\). |
+| Patent | A patent awarded for an invention. |
+| **Podcast** | A [podcast](https://en.wikipedia.org/wiki/Podcast) \(an episode of an audio or video program distributed online, often via subscription\). |
+| Presentation | A presentation made as part of a conference, meeting, symposium, lecture, etc. This item type refers to the presentation itself, not a written version published as part of a conference proceedings \(use `Conference Paper` for such published versions\). |
+| Radio Broadcast | An audio broadcast, such as a radio news show, an episode of a radio entertainment series, or similar. Includes broadcasts from online radio stations and audio broadcasts archived online \(cf. `Podcast`\). |
+| Report | A report published by an organization, institution, government department, or similar entity. Also used for working papers and preprints distributed through institutional repositories or preprint servers. This item type can also be adapted to fit many types of unusual items. |
+| Statute | A law or other piece of enacted legislation. |
+| Thesis | A thesis submitted as part of a student applying for a degree \(either published or unpublished\). |
+| **TV Broadcast** | An episode of a television series. |
+| Video Recording | A video recording. Use this type for general video items that do not fit into one of the more specific video item types \(e.g., Film, TV Broadcast\), such as YouTube videos or video-based scientific figures. |
+| **Webpage** | An online page of a website. When possible, use one of the more specific item types above \(e.g., Magazine Article, Blog Post, Report\). |
+| Note | A standalone note. |
+| Attachment | A standalone attachment file \(e.g., a PDF, JPEG, DOCX, PPTX, XLSX, or ODT file\). |
 
