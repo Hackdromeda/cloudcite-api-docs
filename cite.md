@@ -247,7 +247,7 @@ Cite will send the following back
 
 If the container has no child with the csl-left margin class and a hanging indent, add the following CSS. Note CSS properties when second-field-align=false or no value and hangingindent=true or value combination is not currently supported by this logic.
 
-```text
+```css
 'margin-left: ' + hangingindent + 'em; text-indent:-' + hangingindent + 'em;'
 ```
 
@@ -255,6 +255,12 @@ If the container has no child with the csl-left margin class and a hanging inden
 
 ```css
 'clear: left; margin-bottom:' + entryspacing + 'em;'
+```
+
+If you want to prevent text overflow such as with links, consider adding:
+
+```css
+'word-break: break-all;'
 ```
 
 #### Here's what your CSS should look like for an the `csl-indent` class.
