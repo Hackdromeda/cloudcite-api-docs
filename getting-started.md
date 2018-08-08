@@ -17,5 +17,5 @@ Our APIs are free to use. There is a limit of 200 requests/day.
 
 ## How do I get an API Key?
 
-API keys will be available starting August 2018.
+API keys will be available starting November 2018.
 
