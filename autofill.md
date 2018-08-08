@@ -1552,7 +1552,7 @@ Digital images are not currently supported by autofill. We expect to add support
 [Definitions by Zotero](https://www.zotero.org/support/kb/item_types_and_fields). Formats marked in bold are supported by CloudCite's Autofill API.
 
 | Item Type | Description |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- |
 | Artwork | A piece of artwork \(e.g., an oil painting, photograph, or sculpture\). Also use this item type for other types of images or visual items \(e.g., scientific figures\). |
 | **Audio Recording** | Any form of audio recording, including music, spoken word, sound effects, archival recordings, or audio-based scientific figures. |
 | Bill | A proposed piece of legislation. |

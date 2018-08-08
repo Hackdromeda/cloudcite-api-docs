@@ -118,6 +118,10 @@ Something went wrong. Check the request body you sent us.
 
 Cite requires the following to be sent in the body of the POST request:
 
+{% hint style="info" %}
+If you send null or "" fields such as author last name, sorting will not be done properly. Make sure to remove null or "" properties.
+{% endhint %}
+
 {% code-tabs %}
 {% code-tabs-item title="Cite Request Fields - MLA, en-US" %}
 ```
