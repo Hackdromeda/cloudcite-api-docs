@@ -206,5 +206,9 @@ Something went wrong. Check the request body you sent us.
 
 ## Supported Styles
 
+{% hint style="info" %}
+A few styles with languages specified in parentheses will not work with other locales than the one\(s\) specified.
+{% endhint %}
+
 A full list of supported styles can be found [HERE](https://cloudcite.net/static/styles.txt).
 
