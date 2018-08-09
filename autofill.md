@@ -947,6 +947,88 @@ Here's how it will respond:
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+## Movie
+
+Autofill requires the following fields to be sent in the body of the POST request. You can use the `page` property to access multiple pages of movies. Once you have chosen a movie, send the ID in the `movie` property.
+
+{% code-tabs %}
+{% code-tabs-item title="CSL-JSON Data Movie Request" %}
+```
+{
+  "title": "Avengers Age of Ultron",
+  "format": "movie",
+  "movie": "99861"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Movie Response" %}
+```text
+{
+  "title": "Avengers Age of Ultron",
+  "format": "movie"
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+Here's how it will respond:
+
+{% code-tabs %}
+{% code-tabs-item title="CSL-JSON Data Movie Response" %}
+```
+{
+    "issued": {
+        "month": "04",
+        "year": "2015",
+        "day": "22"
+    },
+    "id": "SET",
+    "director": [{
+        "given": "Joss",
+        "family": "Whedon"
+    }],
+    "title": "Avengers: Age of Ultron",
+    "publisher": "Marvel Studios",
+    "publisher-place": "United States of America",
+    "source": null,
+    "abstract": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+    "type": "motion_picture"
+}
+```
+{% endcode-tabs-item %}
+
+{% code-tabs-item title="Search Movie Response" %}
+```text
+{
+    "page": 1,
+    "total_results": 1,
+    "total_pages": 1,
+    "results": [{
+        "vote_count": 10074,
+        "id": 99861,
+        "video": false,
+        "vote_average": 7.3,
+        "title": "Avengers: Age of Ultron",
+        "popularity": 57.761,
+        "poster_path": "/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
+        "original_language": "en",
+        "original_title": "Avengers: Age of Ultron",
+        "genre_ids": [
+            28,
+            12,
+            878
+        ],
+        "backdrop_path": "/rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg",
+        "adult": false,
+        "overview": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+        "release_date": "2015-04-22"
+    }],
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 ## Music
 
 Autofill requires the following fields to be sent in the body of the POST request. Music has the following types: `album`, `song`, and `song-in-album`. You can use `song-in-album` once you have chosen the `collectionId` of the album you want the songs for. You can use the `trackId` of the song once you have chosen the song you want the CSL-JSON data for.
